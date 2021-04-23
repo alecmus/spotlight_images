@@ -8,3 +8,6 @@ A simple tool for getting Windows Spotlight Images. The application creates a fo
 The application has the following runtime requirements:
 
 1. Windows 10 (32 or 64 bit)
+
+## Source Code
+The file spotlight_images.cpp contains all the code required. However, the file also comes within a Microsoft Visual Studio 2019 solution (spotlight_images.sln).
