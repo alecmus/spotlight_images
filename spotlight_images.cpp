@@ -33,6 +33,39 @@
 #pragma comment(lib, "GdiPlus.lib")
 
 /// <summary>
+/// The minimum size of the smallest side in a valid Windows Spotlight image.
+/// </summary>
+constexpr auto SPOTLIGHT_MIN = 700;
+
+/// <summary>
+/// Algorithm for checking if a given image is a valid Windows Spotlight image.
+/// </summary>
+/// 
+/// <param name="gdibitmap">
+/// A reference to the Gdiplus bitmap.
+/// </param>
+/// 
+/// <returns>
+/// Returns true if the image is valid, else false.
+/// </returns>
+bool is_valid_spotlight_image(Gdiplus::Bitmap& gdibitmap) {
+	// check square images
+	if (gdibitmap.GetWidth() == gdibitmap.GetHeight())
+		return false;
+
+	const bool is_landscape = gdibitmap.GetWidth() > gdibitmap.GetHeight();
+
+	// check small images that are probably not what we're looking for
+	if (is_landscape && gdibitmap.GetHeight() < SPOTLIGHT_MIN)
+		return false;
+	else
+		if (!is_landscape && gdibitmap.GetWidth() < SPOTLIGHT_MIN)
+			return false;
+
+	return true;
+}
+
+/// <summary>
 /// Get current module's full path, whether it's a .exe or a .dll.
 /// </summary>
 /// 
@@ -188,18 +221,17 @@ int main() {
 		// eliminate files that don't make sense
 		for (auto& it : file_list) {
 			// get path
-			std::string sPath = it.string();
+			const std::string source_path = it.string();
 
 			// create GDI+ bitmap from file
-			Gdiplus::Bitmap* p_gdibitmap;
-			p_gdibitmap = new Gdiplus::Bitmap(std::basic_string<TCHAR>(sPath.begin(), sPath.end()).c_str());
+			Gdiplus::Bitmap* p_gdibitmap =
+				new Gdiplus::Bitmap(std::basic_string<TCHAR>(source_path.begin(), source_path.end()).c_str());
 
 			// get status information
 			Gdiplus::Status status = p_gdibitmap->GetLastStatus();
 
 			// check if an error occured
-			if (status != 0)
-			{
+			if (status != 0) {
 				// delete bitmap from memory
 				if (p_gdibitmap) {
 					delete p_gdibitmap;
@@ -207,9 +239,11 @@ int main() {
 				}
 			}
 			else {
-				// skip square images
-				if (p_gdibitmap->GetWidth() == p_gdibitmap->GetHeight())
+				// skip invalid images
+				if (!is_valid_spotlight_image(*p_gdibitmap))
 					continue;
+
+				const bool is_landscape = p_gdibitmap->GetWidth() > p_gdibitmap->GetHeight();
 
 				// get file name
 				std::string file_name;
@@ -222,8 +256,6 @@ int main() {
 					// if the "Windows SpotLight' folder doesn't exist, create it
 					std::filesystem::create_directory(new_folder);
 
-					const bool is_landscape = p_gdibitmap->GetWidth() > p_gdibitmap->GetHeight();
-
 					if (is_landscape)
 						new_folder += "\\Landscape";
 					else
@@ -235,9 +267,9 @@ int main() {
 					std::string new_file = new_folder + "\\" + file_name + ".jpg";
 
 					// if the file exists, delete it
-					std::filesystem::directory_entry path(new_file);
+					std::filesystem::directory_entry destination_path(new_file);
 
-					if (path.exists())
+					if (destination_path.exists())
 						std::remove(new_file.c_str());
 
 					// save the image to the new file with the .jpg extension
