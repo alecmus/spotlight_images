@@ -29,6 +29,6 @@
 #define MAJORBUILD	0	//majorbuild
 #define BUILD		0	//build
 
-#define VERSIONSTR	"1.0.0.0 beta"	//versionstring
+#define VERSIONSTR	"1.0.0.0"	//versionstring
 
 #define PROGNAME	"Spotlight Images"	//programname
