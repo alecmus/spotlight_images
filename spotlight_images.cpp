@@ -181,7 +181,8 @@ int main() {
 	// get current folder
 	std::string current_folder = get_current_folder();
 
-	int copied_images = 0;
+	int landscape = 0;
+	int portrait = 0;
 
 	try {
 		// eliminate files that don't make sense
@@ -221,6 +222,16 @@ int main() {
 					// if the "Windows SpotLight' folder doesn't exist, create it
 					std::filesystem::create_directory(new_folder);
 
+					const bool is_landscape = p_gdibitmap->GetWidth() > p_gdibitmap->GetHeight();
+
+					if (is_landscape)
+						new_folder += "\\Landscape";
+					else
+						new_folder += "\\Portrait";
+
+					// if the sub-folder doesn't exist, create it
+					std::filesystem::create_directory(new_folder);
+
 					std::string new_file = new_folder + "\\" + file_name + ".jpg";
 
 					// if the file exists, delete it
@@ -231,7 +242,11 @@ int main() {
 
 					// save the image to the new file with the .jpg extension
 					std::filesystem::copy_file(it, new_file);
-					copied_images++;
+
+					if (is_landscape)
+						landscape++;
+					else
+						portrait++;
 				}
 				catch (const std::exception& e) {
 					std::cout << e.what() << std::endl;
@@ -250,14 +265,23 @@ int main() {
 		return 0;
 	}
 
-	std::string message = std::to_string(copied_images) + " image";
-	if (copied_images != 1) message += "s";
+	std::string message = std::to_string(portrait + landscape) + " image";
+	if ((portrait + landscape) != 1) message += "s";
 
 	message += " copied successfully!";
 
-	if (copied_images == 0) message = "No images were copied.";
+	if ((portrait + landscape) == 0) message = "No images were copied.";
 
-	std::cout << ">>>>> " << message << " <<<<<" << std::endl << std::endl;
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << message << std::endl << std::endl;
+
+	if ((portrait + landscape) != 0) {
+		std::cout << "Landscape: " << landscape << std::endl;
+		std::cout << "Portrait : " << portrait << std::endl;
+	}
+
+	std::cout << "--------------------------------" << std::endl;
+
 	system("pause");
 	return 0;
 }
