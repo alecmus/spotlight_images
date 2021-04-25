@@ -124,11 +124,11 @@ bool get_directory_from_full_path(
 /// Extract file name from full path.
 /// </summary>
 /// 
-/// <param name="sFullPath">
+/// <param name="full_path">
 /// The full path, e.g. C:\\MyFolder\\myFile.txt
 /// </param>
 /// 
-/// <param name="sFileName">
+/// <param name="file_name">
 /// The directory in which file specified in sFullPath is.
 /// </param>
 /// 
