@@ -24,11 +24,15 @@
 
 #pragma once
 
-#define MAJOR		1	//MAJOR
-#define MINOR		0	//MINOR
-#define MAJORBUILD	1	//majorbuild
-#define BUILD		0	//build
+#define appname			"Spotlight Images"
+#define appdescription	"Get Windows Spotlight images"
+#define appcomments		"Powered by the cui framework"
+#define appcopyright	"(c) 2021 Alec T. Musasa"
+#define appfilename		"spotlight_images.exe"
 
-#define VERSIONSTR	"1.0.1.0 beta"	//versionstring
+#define appversion		"1.0.1 beta"
+#define appmajor		1
+#define appminor		0
+#define apprevision		1
 
-#define PROGNAME	"Spotlight Images"	//programname
+#define appdate			"29 Apr 2021"

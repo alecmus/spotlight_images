@@ -123,7 +123,7 @@ class spotlight_images : public gui {
 		gui::prompt_params params;
 		params.type = gui::prompt_type::ok;
 
-		std::string display_text = std::string(PROGNAME) + " " + std::string(VERSIONSTR);
+		std::string display_text = std::string(appname) + " " + std::string(appversion) + " " + std::string(appdate);
 
 		display_text += "\n\nFor more info visit:\nhttps://github.com/alecmus/spotlight_images";
 		display_text += "\n\nIcons designed by Freepik:\nhttp://flaticon.com";
