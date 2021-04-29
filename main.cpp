@@ -76,7 +76,24 @@ class main_form : public gui {
 
 		message += " copied.";
 
-		if (pictures_.size() == 0) message = "No images were copied.";
+		if (pictures_.size() == 0) {
+			message = "No images were copied.";
+
+			set_timer("no_images_timer", 100, [&]() {
+				stop_timer(home_page_name_ + "/no_images_timer");
+				gui::prompt_params params;
+				params.type = gui::prompt_type::ok;
+				params.png_icon_resource = png_error;
+				std::string display_text = "No images were found. Kindly check the following:\n\n"
+					"1. Is Windows Spotlight enabled for the current user profile? Check under "
+					"Settings - Personalization - Lock screen. After enabling Spotlight "
+					"it may take up to 24 hours for the first image to show up.\n\n"
+					"2. Is your internet connection set to metered? Check under "
+					"Settings - Network and Internet - Properties. When the connection is metered Windows"
+					" might not update the images in order to save data.";
+				prompt(params, "", display_text);
+				});
+		}
 
 		if (pictures_.size() != 0) {
 			int landscape = std::count_if(pictures_.begin(), pictures_.end(),
