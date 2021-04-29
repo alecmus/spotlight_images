@@ -35,7 +35,7 @@ using namespace liblec::cui;
 // gui app using main
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
-class spotlight_images : public gui {
+class main_form : public gui {
 	const std::string home_page_name_;
 	const liblec::cui::size form_size_{ 800, 500 };
 	const long margin_ = 10;
@@ -105,9 +105,10 @@ class spotlight_images : public gui {
 	}
 
 public:
-	spotlight_images() :
+	main_form(const std::string& guid) :
+		gui::gui(guid),
 		home_page_name_("Spotlight Images")	{}
-	~spotlight_images() {}
+	~main_form() {}
 
 	bool layout(gui::page& persistent_page,
 		gui::page& home_page,
@@ -259,7 +260,7 @@ int main() {
 	const std::string guid_app = "{24DE7949-0EB7-4086-85F0-76D10191E633}";	// allow only one instance of the app
 	const std::string guid_form = "{EFA84F43-D48D-475A-A826-915FC65687A1}";	// to bring existing form to the foreground if a new instance is attempted
 
-	spotlight_images gui_app;
+	main_form gui_app(guid_app);
 
 	std::string error;
 	if (!gui_app.run(guid_form, error)) {
