@@ -13,9 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\ico">
+      <UniqueIdentifier>{92c785c3-caac-460c-b35f-51beabe4e4bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\png">
+      <UniqueIdentifier>{709c931e-7d08-4454-a8f0-a60da65a9c68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spotlight_images.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -23,10 +32,51 @@
     <ClInclude Include="version_info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="spotlight_images.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="version_info.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+    <ResourceCompile Include="resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\ico\icon.ico">
+      <Filter>Resource Files\ico</Filter>
+    </Image>
+    <Image Include="resources\png\error.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\folder.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_16.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_20.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_24.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_28.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_32.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\image.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
   </ItemGroup>
 </Project>

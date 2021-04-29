@@ -22,7 +22,6 @@
 ** SOFTWARE.
 */
 
-#include <iostream>
 #include <string>
 #include <filesystem>
 #include <Windows.h>
@@ -31,6 +30,8 @@
 
 #include <GdiPlus.h>
 #pragma comment(lib, "GdiPlus.lib")
+
+#include "spotlight_images.h"
 
 /// <summary>
 /// The minimum size of the smallest side in a valid Windows Spotlight image.
@@ -92,21 +93,6 @@ bool get_module_full_path(std::string& full_path) {
 	return true;
 }
 
-/// <summary>
-/// Extract directory from full path.
-/// </summary>
-/// 
-/// <param name="full_path">
-/// The full path, e.g. C:\\MyFolder\\myFile.txt
-/// </param>
-/// 
-/// <param name="directory">
-/// The directory in which file specified in full_path is.
-/// </param>
-/// 
-/// <returns>
-/// Returns true if successful, else false.
-/// </returns>
 bool get_directory_from_full_path(
 	const std::string& full_path,
 	std::string& directory) {
@@ -120,21 +106,6 @@ bool get_directory_from_full_path(
 	return true;
 }
 
-/// <summary>
-/// Extract file name from full path.
-/// </summary>
-/// 
-/// <param name="full_path">
-/// The full path, e.g. C:\\MyFolder\\myFile.txt
-/// </param>
-/// 
-/// <param name="file_name">
-/// The directory in which file specified in sFullPath is.
-/// </param>
-/// 
-/// <returns>
-/// Returns true if successful, else false.
-/// </returns>
 bool get_filename_from_full_path(
 	const std::string& full_path,
 	std::string& file_name) {
@@ -185,7 +156,7 @@ private:
 	ULONG_PTR gdiplus_token;
 };
 
-int main() {
+std::vector<image_info> fetch_images() {
 	auto_manage auto_manage_object;
 
 	auto get_app_data_folder = []() {
@@ -214,8 +185,7 @@ int main() {
 	// get current folder
 	std::string current_folder = get_current_folder();
 
-	int landscape = 0;
-	int portrait = 0;
+	std::vector<image_info> images;
 
 	try {
 		// eliminate files that don't make sense
@@ -275,13 +245,17 @@ int main() {
 					// save the image to the new file with the .jpg extension
 					std::filesystem::copy_file(it, new_file);
 
-					if (is_landscape)
-						landscape++;
-					else
-						portrait++;
+					images.push_back({
+						is_landscape ? image_orientation::landscape :
+						image_orientation::portrait,
+						new_file,
+						std::filesystem::file_size(it),
+						p_gdibitmap->GetWidth(),
+						p_gdibitmap->GetHeight()
+						});
 				}
 				catch (const std::exception& e) {
-					std::cout << e.what() << std::endl;
+					// to-do: log error
 				}
 
 				// delete bitmap from memory
@@ -293,27 +267,8 @@ int main() {
 		}
 	}
 	catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
-		return 0;
+		// to-do: log error
 	}
 
-	std::string message = std::to_string(portrait + landscape) + " image";
-	if ((portrait + landscape) != 1) message += "s";
-
-	message += " copied successfully!";
-
-	if ((portrait + landscape) == 0) message = "No images were copied.";
-
-	std::cout << "--------------------------------" << std::endl;
-	std::cout << message << std::endl << std::endl;
-
-	if ((portrait + landscape) != 0) {
-		std::cout << "Landscape: " << landscape << std::endl;
-		std::cout << "Portrait : " << portrait << std::endl;
-	}
-
-	std::cout << "--------------------------------" << std::endl;
-
-	system("pause");
-	return 0;
+	return images;
 }
