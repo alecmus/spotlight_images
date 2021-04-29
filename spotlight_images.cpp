@@ -25,13 +25,13 @@
 #include <string>
 #include <filesystem>
 #include <Windows.h>
-#include <tchar.h>
 #include <ShlObj.h>
 
 #include <GdiPlus.h>
 #pragma comment(lib, "GdiPlus.lib")
 
 #include "spotlight_images.h"
+#include "helper_functions.h"
 
 /// <summary>
 /// The minimum size of the smallest side in a valid Windows Spotlight image.
@@ -66,99 +66,7 @@ bool is_valid_spotlight_image(Gdiplus::Bitmap& gdibitmap) {
 	return true;
 }
 
-/// <summary>
-/// Get current module's full path, whether it's a .exe or a .dll.
-/// </summary>
-/// 
-/// <param name="full_path">
-/// Full path to the module.
-/// </param>
-/// 
-/// <returns>
-/// Returns true if successful, else false;
-/// </returns>
-bool get_module_full_path(std::string& full_path) {
-	char buffer[MAX_PATH];
-	HMODULE h_module = NULL;
-
-	if (!GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-		// use the address of the current function to detect the module handle of the current application (critical for DLLs)
-		(LPCSTR)&get_module_full_path,
-		&h_module))
-		return false;
-
-	// using the module handle enables detection of filename even of a DLL
-	GetModuleFileNameA(h_module, buffer, MAX_PATH);
-	full_path = buffer;
-	return true;
-}
-
-bool get_directory_from_full_path(
-	const std::string& full_path,
-	std::string& directory) {
-	directory.clear();
-
-	const size_t last_slash_index = full_path.rfind('\\');
-
-	if (std::string::npos != last_slash_index)
-		directory = full_path.substr(0, last_slash_index);
-
-	return true;
-}
-
-bool get_filename_from_full_path(
-	const std::string& full_path,
-	std::string& file_name) {
-	file_name.clear();
-
-	const size_t last_slash_idx = full_path.rfind('\\');
-
-	if (std::string::npos != last_slash_idx) {
-		file_name = full_path;
-		file_name.erase(0, last_slash_idx + 1);
-	}
-
-	return true;
-}
-
-std::string get_current_folder() {
-	std::string full_path;
-	if (get_module_full_path(full_path)) {
-		std::string current_folder;
-		return get_directory_from_full_path(full_path, current_folder) ?
-			current_folder : std::string();
-	}
-	else
-		return std::string();
-}
-
-/*
-** application auto manage class (for managing critical application resources that
-** need to be started at application startup and destroyed at application shutdown;
-** GDI+ in this case)
-** create one and only one object of this class at the start of the application
-** the destructor will call all the required cleanup procedures
-*/
-class auto_manage {
-public:
-	auto_manage() {
-		// initialize GDI+
-		Gdiplus::GdiplusStartupInput gdiplusStartupInput;
-		GdiplusStartup(&gdiplus_token, &gdiplusStartupInput, NULL);
-	}
-
-	~auto_manage() {
-		// shut down GDI+
-		Gdiplus::GdiplusShutdown(gdiplus_token);
-	}
-
-private:
-	ULONG_PTR gdiplus_token;
-};
-
 std::vector<image_info> fetch_images() {
-	auto_manage auto_manage_object;
-
 	auto get_app_data_folder = []() {
 		CHAR szPath[MAX_PATH];
 		if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, szPath))) {

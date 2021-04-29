@@ -179,10 +179,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="helper_functions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="spotlight_images.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="helper_functions.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="spotlight_images.h" />
     <ClInclude Include="version_info.h" />

@@ -27,33 +27,58 @@
 #include <string>
 #include <vector>
 
-enum class image_orientation {
-	portrait = 0,
-	landscape,
-};
-
-struct image_info {
-	image_orientation orientation;
-	std::string full_path;
-	unsigned long long file_size = 0;
-	unsigned int width = 0;
-	unsigned int height = 0;
-};
-
 /// <summary>
-/// Fetch Windows Spotlight images.
+/// Extract file name from full path.
 /// </summary>
 /// 
-/// <remarks>
-/// Creates a folder within the module's directory named "Spotlight" then
-/// copies Windows Spotlight images available in the current user's profile
-/// into subfolders /Portrait and /Landscape depending on their orientation.
-/// If images with the same names already exist they are overwritten.
+/// <param name="full_path">
+/// The full path, e.g. C:\\MyFolder\\myFile.txt
+/// </param>
 /// 
-/// This function uses GdiPlus. Ensure Gdiplus is initialized before calling.
-/// </remarks>
+/// <param name="file_name">
+/// The directory in which file specified in sFullPath is.
+/// </param>
 /// 
 /// <returns>
-/// Returns a list image_info objects for all the files fetched.
+/// Returns true if successful, else false.
 /// </returns>
-std::vector<image_info> fetch_images();
+bool get_filename_from_full_path(
+	const std::string& full_path,
+	std::string& file_name);
+
+/// <summary>
+/// Extract directory from full path.
+/// </summary>
+/// 
+/// <param name="full_path">
+/// The full path, e.g. C:\\MyFolder\\myFile.txt
+/// </param>
+/// 
+/// <param name="directory">
+/// The directory in which file specified in full_path is.
+/// </param>
+/// 
+/// <returns>
+/// Returns true if successful, else false.
+/// </returns>
+bool get_directory_from_full_path(
+	const std::string& full_path,
+	std::string& directory);
+
+/// <summary>
+/// Get the folder from which this module is running.
+/// </summary>
+/// 
+/// <returns>
+/// The full path to the current folder.
+/// </returns>
+std::string get_current_folder();
+
+/// <summary>
+/// Format data size in B, KB, MB, GB or TB.
+/// </summary>
+///
+/// <returns>
+/// Returns a formatted string in the form 5B, 45KB, 146MB, 52GB, 9TB etc.
+/// </returns>
+std::string format_size(unsigned long long size);
