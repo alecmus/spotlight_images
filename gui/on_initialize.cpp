@@ -22,18 +22,20 @@
 ** SOFTWARE.
 */
 
-#include "gui.h"
+#include "../gui.h"
 
-// gui app using main
-#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+bool main_form::on_initialize(std::string& error) {
+	// size and stuff
+	_ctrls
+		.allow_resize(false);
+	_apprnc
+		.set_icons(ico_resource, ico_resource)
+		.theme(_setting_darktheme ? lecui::themes::dark : lecui::themes::light);
 
-int main() {
-	std::string error;
-	main_form fm(appname);
-	if (!fm.create(error)) {
-		fm.message(error);
-		return 1;
-	}
+	_dim.set_size(lecui::size().width(800.f).height(500.f));
 
-	return 0;
+	// add form caption handler
+	form::on_caption([this]() { about(); }, "Click to view information about this app");
+
+	return true;
 }

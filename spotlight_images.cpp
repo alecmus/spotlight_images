@@ -162,7 +162,7 @@ std::vector<image_info> fetch_images() {
 						p_gdibitmap->GetHeight()
 						});
 				}
-				catch (const std::exception& e) {
+				catch (const std::exception&) {
 					// to-do: log error
 				}
 

@@ -19,6 +19,15 @@
     <Filter Include="Resource Files\png">
       <UniqueIdentifier>{709c931e-7d08-4454-a8f0-a60da65a9c68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui">
+      <UniqueIdentifier>{a6520a0e-965a-4f44-927d-e6b6aefeb6fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\main_form">
+      <UniqueIdentifier>{4dc7d70b-2581-44b1-a77f-2f31c8c6ef50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\about">
+      <UniqueIdentifier>{ac4b6f1b-9bea-4094-ae3e-07af561ec7dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spotlight_images.cpp">
@@ -29,6 +38,18 @@
     </ClCompile>
     <ClCompile Include="helper_functions.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\on_initialize.cpp">
+      <Filter>Source Files\gui\main_form</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\on_layout.cpp">
+      <Filter>Source Files\gui\main_form</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\main_form.cpp">
+      <Filter>Source Files\gui\main_form</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\about\about.cpp">
+      <Filter>Source Files\gui\about</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="helper_functions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gui.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -61,24 +85,6 @@
       <Filter>Resource Files\png</Filter>
     </Image>
     <Image Include="resources\png\folder.png">
-      <Filter>Resource Files\png</Filter>
-    </Image>
-    <Image Include="resources\png\icon.png">
-      <Filter>Resource Files\png</Filter>
-    </Image>
-    <Image Include="resources\png\icon_16.png">
-      <Filter>Resource Files\png</Filter>
-    </Image>
-    <Image Include="resources\png\icon_20.png">
-      <Filter>Resource Files\png</Filter>
-    </Image>
-    <Image Include="resources\png\icon_24.png">
-      <Filter>Resource Files\png</Filter>
-    </Image>
-    <Image Include="resources\png\icon_28.png">
-      <Filter>Resource Files\png</Filter>
-    </Image>
-    <Image Include="resources\png\icon_32.png">
       <Filter>Resource Files\png</Filter>
     </Image>
     <Image Include="resources\png\image.png">

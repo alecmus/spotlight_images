@@ -179,11 +179,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gui\about\about.cpp" />
+    <ClCompile Include="gui\main_form.cpp" />
+    <ClCompile Include="gui\on_initialize.cpp" />
+    <ClCompile Include="gui\on_layout.cpp" />
     <ClCompile Include="helper_functions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="spotlight_images.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gui.h" />
     <ClInclude Include="helper_functions.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="spotlight_images.h" />
@@ -197,12 +202,6 @@
     <Image Include="resources\ico\icon.ico" />
     <Image Include="resources\png\error.png" />
     <Image Include="resources\png\folder.png" />
-    <Image Include="resources\png\icon.png" />
-    <Image Include="resources\png\icon_16.png" />
-    <Image Include="resources\png\icon_20.png" />
-    <Image Include="resources\png\icon_24.png" />
-    <Image Include="resources\png\icon_28.png" />
-    <Image Include="resources\png\icon_32.png" />
     <Image Include="resources\png\image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
