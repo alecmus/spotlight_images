@@ -24,5 +24,5 @@ The application has the following runtime requirements:
 
 1. Windows 10 (32 or 64 bit)
 
-## Source Code
-The file [spotlight_images.cpp](https://github.com/alecmus/spotlight_images/blob/master/spotlight_images.cpp) contains all the code required. However, there is also a Microsoft Visual Studio 2019 solution ([spotlight_images.sln](https://github.com/alecmus/spotlight_images/blob/master/spotlight_images.sln)) for convenience.
+## More Info
+The app is powered by the [leccore](https://github.com/alecmus/leccore) and the [lecui](https://github.com/alecmus/lecui) libraries.
