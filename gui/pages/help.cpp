@@ -24,6 +24,7 @@
 
 #include "../../gui.h"
 #include <liblec/lecui/widgets/label.h>
+#include <liblec/lecui/widgets/line.h>
 
 #include <liblec/leccore/system.h>
 
@@ -110,20 +111,58 @@ void main_form::add_help_page() {
 		.text("<strong>Additional credits</strong>")
 		.rect().width(width).snap_to(lecui_version.rect(), snap_type::bottom, _margin);
 
-	auto& dynosoft = lecui::widgets::label::add(help);
-	dynosoft
+	auto& dinosoft = lecui::widgets::label::add(help);
+	dinosoft
 		.text("Main icon designed by DinosoftLabs from https://www.flaticon.com")
 		.rect().width(width).snap_to(addition_credits_caption.rect(), snap_type::bottom, 0.f);
-	dynosoft
+	dinosoft
 		.events().action = [this]() {
 		std::string error;
 		if (!leccore::shell::open("https://www.flaticon.com/authors/dinosoftlabs", error))
 			message(error);
 	};
 
+	auto& freepik = lecui::widgets::label::add(help);
+	freepik
+		.text("Icons made by Freepik from https://www.flaticon.com")
+		.rect().width(width).snap_to(dinosoft.rect(), snap_type::bottom, 0.f);
+	freepik
+		.events().action = [this]() {
+		std::string error;
+		if (!leccore::shell::open("https://www.freepik.com", error))
+			message(error);
+	};
+
+	auto& dmitri13 = lecui::widgets::label::add(help);
+	dmitri13
+		.text("Icons made by dmitri13 from https://www.flaticon.com")
+		.rect().width(width).snap_to(freepik.rect(), snap_type::bottom, 0.f);
+	dmitri13
+		.events().action = [this]() {
+		std::string error;
+		if (!leccore::shell::open("https://www.flaticon.com/authors/dmitri13", error))
+			message(error);
+	};
+
+	// add line
+	auto& license_line = lecui::widgets::line::add(help);
+	license_line
+		.thickness(0.25f)
+		.rect(lecui::rect(dmitri13.rect()));
+	license_line.rect().top(license_line.rect().bottom());
+	license_line.rect().top() += 5.f * _margin;
+	license_line.rect().bottom() += 5.f * _margin;
+
+	license_line
+		.points(
+			{
+				lecui::point().x(0.f).y(0.f),
+				lecui::point().x(license_line.rect().width()).y(0.f)
+			});
+
 	// add license information
 	auto& license_notice = lecui::widgets::label::add(help);
 	license_notice
 		.text("This app is free software released under the MIT License.")
-		.rect().width(width).snap_to(dynosoft.rect(), snap_type::bottom, _margin);
+		.rect().width(width).snap_to(license_line.rect(), snap_type::bottom, _margin);
 }
