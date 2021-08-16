@@ -23,29 +23,23 @@
 */
 
 #include "../../gui.h"
+#include <liblec/lecui/widgets/label.h>
 
-void main_form::about() {
-	if (minimized())
-		restore();
-	else
-		show();
+void main_form::add_settings_page() {
+	auto& settings = _page_man.add("settings");
 
-	std::string display_text =
-		"<span style = 'font-size: 9.0pt;'>" +
-		std::string(appname) + " " + std::string(appversion) + " (" + std::string(architecture) + "), " + std::string(appdate) +
-		"</span>";
+	const auto right = settings.size().get_width();
+	const auto bottom = settings.size().get_height();
 
-	display_text += "\n<span style = 'font-size: 8.0pt;'>© 2021 Alec Musasa</span>";
+	// add page title
+	auto& title = lecui::widgets::label::add(settings);
+	title
+		.text("<strong>APP SETTINGS</strong>")
+		.rect(lecui::rect()
+			.left(_margin)
+			.right(right - _margin)
+			.top(_margin)
+			.height(25.f));
 
-	display_text += "\n\n<strong>For more info</strong>\nVisit https://github.com/alecmus/pc_info";
-
-	display_text += "\n\n<strong>Libraries used</strong>";
-	display_text += "\n" + lecui::version();
-
-	display_text += "\n\n<strong>Additional credits</strong>\nMain icon designed by DinosoftLabs\nhttps://www.flaticon.com/authors/dinosoftlabs";
-	display_text += "\nfrom https://www.flaticon.com";
-
-	display_text += "\n\nThis app is free software released under the MIT License.";
-
-	message(display_text);
+	const auto width = title.rect().width();
 }

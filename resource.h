@@ -29,3 +29,7 @@
 #define png_error		110
 #define png_open_image	111
 #define png_open_folder	112
+#define png_settings	113
+#define png_back_light	114
+#define png_back_dark	115
+#define png_help		116

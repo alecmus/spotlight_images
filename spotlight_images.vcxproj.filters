@@ -25,8 +25,8 @@
     <Filter Include="Source Files\gui\main_form">
       <UniqueIdentifier>{4dc7d70b-2581-44b1-a77f-2f31c8c6ef50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\about">
-      <UniqueIdentifier>{ac4b6f1b-9bea-4094-ae3e-07af561ec7dc}</UniqueIdentifier>
+    <Filter Include="Source Files\gui\main_form\pages">
+      <UniqueIdentifier>{1f33f6bd-6427-40ec-a969-4eb8888517d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,8 +48,17 @@
     <ClCompile Include="gui\main_form.cpp">
       <Filter>Source Files\gui\main_form</Filter>
     </ClCompile>
-    <ClCompile Include="gui\about\about.cpp">
-      <Filter>Source Files\gui\about</Filter>
+    <ClCompile Include="gui\pages\home.cpp">
+      <Filter>Source Files\gui\main_form\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\pages\help.cpp">
+      <Filter>Source Files\gui\main_form\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\pages\settings.cpp">
+      <Filter>Source Files\gui\main_form\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\side_pane.cpp">
+      <Filter>Source Files\gui\main_form</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +97,18 @@
       <Filter>Resource Files\png</Filter>
     </Image>
     <Image Include="resources\png\image.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\back_dark.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\back_light.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\info.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\settings.png">
       <Filter>Resource Files\png</Filter>
     </Image>
   </ItemGroup>

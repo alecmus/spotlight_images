@@ -77,6 +77,11 @@ class main_form : public lecui::form {
 	bool on_layout(std::string& error) override;
 	void on_start() override;
 	void about();
+	void add_side_pane();
+	void add_back_button();
+	void add_home_page();
+	void add_help_page();
+	void add_settings_page();
 
 public:
 	main_form(const std::string& caption);

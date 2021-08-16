@@ -29,13 +29,17 @@ bool main_form::on_initialize(std::string& error) {
 	_ctrls
 		.allow_resize(false);
 	_apprnc
-		.set_icons(ico_resource, ico_resource)
+		.main_icon(ico_resource)
+		.mini_icon(ico_resource)
 		.theme(_setting_darktheme ? lecui::themes::dark : lecui::themes::light);
 
 	_dim.set_size(lecui::size().width(800.f).height(500.f));
 
 	// add form caption handler
-	form::on_caption([this]() { about(); }, "Click to view information about this app");
+	form::on_caption([this]() {
+		add_back_button();
+		_page_man.show("help");
+		}, "Click to view information about this app");
 
 	return true;
 }
