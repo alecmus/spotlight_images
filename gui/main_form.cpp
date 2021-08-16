@@ -26,7 +26,6 @@
 #include "../helper_functions.h"
 #include <liblec/lecui/widgets/label.h>
 #include <liblec/lecui/widgets/table_view.h>
-#include <algorithm>
 
 // leccore
 #include <liblec/leccore/system.h>
@@ -424,107 +423,6 @@ void main_form::on_close_update_status() {
 	catch (const std::exception&) {}
 
 	_update_details_displayed = false;
-}
-
-void main_form::on_start() {
-	_pictures = fetch_images();
-
-	// display caption
-	std::string message = std::to_string(_pictures.size()) + " image";
-	if (_pictures.size() != 1) message += "s";
-
-	message += " copied.";
-
-	if (_pictures.size() == 0) {
-		message = "No images were copied.";
-
-		_timer_man.add("no_images_timer", 100, [&]() {
-			_timer_man.stop("no_images_timer");
-			std::string display_text = "No images were found. Kindly check the following:\n\n"
-				"1. Is Windows Spotlight enabled for the current user profile? Check under "
-				"Settings - Personalization - Lock screen. After enabling Spotlight "
-				"it may take up to 24 hours for the first image to show up.\n\n"
-				"2. Is your internet connection set to metered? Check under "
-				"Settings - Network and Internet - Properties. When the connection is metered Windows"
-				" might not update the images in order to save data.";
-			form::message(display_text);
-			});
-	}
-
-	if (_pictures.size() != 0) {
-		auto landscape = std::count_if(_pictures.begin(), _pictures.end(),
-			[](image_info p) {
-				return p.orientation == image_orientation::landscape;
-			});
-
-		message += " " + std::to_string(landscape) + " Landscape, " + std::to_string(_pictures.size() - landscape) + " Portrait.";
-		message += " Select to preview.";
-	}
-
-	try {
-		auto& caption = get_label("home/caption");
-		caption.text(message);
-	}
-	catch (const std::exception&) {}
-
-	// populate tableview
-	try {
-		auto& list = get_table_view("home/list");
-
-		for (const auto& pic : _pictures) {
-			std::string file_name;
-			get_filename_from_full_path(pic.full_path, file_name);
-
-			lecui::table_row row = {
-				{ "Name", file_name },
-				{ "Size", format_size(pic.file_size) },
-				{ "Orientation", std::string(pic.orientation == image_orientation::landscape ? "Landscape" : "Portrait") }
-			};
-
-			list.data().push_back(row);
-		}
-	}
-	catch (const std::exception&) {}
-
-	if (_installed) {
-		std::string error;
-		if (!_tray_icon.add(ico_resource, std::string(appname) + " " +
-			std::string(appversion) + " (" + std::string(architecture) + ")",
-			{
-			{ "<strong>Show Spotlight Images</strong>", [this]() {
-				if (minimized())
-					restore();
-				else
-					show();
-			} },
-			{ "" },
-			{ "Settings", [this]() {
-				add_back_button();
-				_page_man.show("settings"); }
-			},
-			{ "Updates", [this]() { updates(); } },
-			{ "About", [this]() {
-				add_back_button();
-				_page_man.show("help"); }
-			},
-			{ "" },
-			{ "Exit", [this]() { close(); } }
-			},
-			"Show Spotlight Images", error)) {
-		}
-	}
-
-	std::string error;
-	// disable autodownload_updates toggle button if autocheck_updates is off
-	if (_setting_autocheck_updates)
-		_widget_man.enable("settings/autodownload_updates", error);
-	else
-		_widget_man.disable("settings/autodownload_updates", error);
-
-	if (_installed)
-		_widget_man.enable("settings/autostart", error);
-	else
-		_widget_man.disable("settings/autostart", error);
 }
 
 main_form::main_form(const std::string& caption) :

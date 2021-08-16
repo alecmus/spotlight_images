@@ -179,10 +179,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="create_process.cpp" />
     <ClCompile Include="gui\main_form.cpp" />
     <ClCompile Include="gui\on_initialize.cpp" />
     <ClCompile Include="gui\on_layout.cpp" />
+    <ClCompile Include="gui\on_start.cpp" />
     <ClCompile Include="gui\pages\help.cpp" />
     <ClCompile Include="gui\pages\home.cpp" />
     <ClCompile Include="gui\pages\settings.cpp" />
@@ -192,7 +192,6 @@
     <ClCompile Include="spotlight_images.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="create_process.h" />
     <ClInclude Include="gui.h" />
     <ClInclude Include="helper_functions.h" />
     <ClInclude Include="resource.h" />

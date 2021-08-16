@@ -60,8 +60,8 @@
     <ClCompile Include="gui\side_pane.cpp">
       <Filter>Source Files\gui\main_form</Filter>
     </ClCompile>
-    <ClCompile Include="create_process.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="gui\on_start.cpp">
+      <Filter>Source Files\gui\main_form</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +78,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="gui.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="create_process.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
