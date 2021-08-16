@@ -4,7 +4,7 @@
 ** Copyright(c) 2021 Alec Musasa
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a copy
-** of this softwareand associated documentation files(the "Software"), to deal
+** of this software and associated documentation files(the "Software"), to deal
 ** in the Software without restriction, including without limitation the rights
 ** to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
 ** copies of the Software, and to permit persons to whom the Software is
@@ -24,13 +24,8 @@
 
 #pragma once
 
-#define ico_resource	100
+#include <string>
+#include <vector>
 
-#define png_error		110
-#define png_open_image	111
-#define png_open_folder	112
-#define png_settings	113
-#define png_back_light	114
-#define png_back_dark	115
-#define png_help		116
-#define png_updates		117
+bool create_process(const std::string& fullpath,
+	const std::vector<std::string>& args, std::string& error);

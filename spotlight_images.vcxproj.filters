@@ -60,6 +60,9 @@
     <ClCompile Include="gui\side_pane.cpp">
       <Filter>Source Files\gui\main_form</Filter>
     </ClCompile>
+    <ClCompile Include="create_process.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="version_info.h">
@@ -75,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="gui.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="create_process.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -111,5 +117,13 @@
     <Image Include="resources\png\settings.png">
       <Filter>Resource Files\png</Filter>
     </Image>
+    <Image Include="resources\png\updates.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="latest_update.xml">
+      <Filter>Source Files</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

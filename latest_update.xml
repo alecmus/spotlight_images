@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<leccore>
+  <update>
+    <title>Spotlight Images Update</title>
+    <description>Various improvements including but not limited to the following: .</description>
+    <version>1.0.1 beta 2</version>
+    <date>16 Aug 2021</date>
+    <x86>
+      <download_url>https://github.com/alecmus/spotlight_images/releases/download/v1.0.1-beta.2/update.32.zip</download_url>
+      <size>2314046</size>
+      <hash>
+        <sha256>16E2B1470D583475A1A0498AF058CC4A794E015225CBB2BE634B3086534EF1C0</sha256>
+      </hash>
+    </x86>
+    <x64>
+      <download_url>https://github.com/alecmus/spotlight_images/releases/download/v1.0.1-beta.2/update.64.zip</download_url>
+      <size>2945987</size>
+      <hash>
+        <sha256>FE42927A8A6F3B66A9B1298D0CD9CAD1D2013E712EFD74C397AC70EA4A5CA6F5</sha256>
+      </hash>
+    </x64>
+  </update>
+</leccore>

@@ -27,13 +27,33 @@
 // gui app using main
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
+/// <summary>
+/// Main application entry point.
+/// </summary>
+/// <returns>
+/// Returns 1 if an error was encountered else returns 0.
+/// </returns>
+/// <remarks>
+/// Supported command-line flags:
+/// /cleanup: delete all application settings (prompts user if they would like to delete the app settings).
+/// Designed to be used by the uninstaller.
+/// /update: update exe running in temp directory. For overwriting files in install directory with the unzipped update files.
+/// /recentupdate: new exe running from the install directory for the first time after an update.
+/// /systemtray: start application in the background. Only the system tray will be visible and no splash screen will be displayed.
+/// </remarks>
 int main() {
-	std::string error;
-	main_form fm(appname);
-	if (!fm.create(error)) {
-		fm.message(error);
-		return 1;
-	}
+	bool restart = false;
+
+	do {
+		std::string error;
+		main_form fm(appname);
+		if (!fm.create(error)) {
+			fm.message(error);
+			return 1;
+		}
+
+		restart = fm.restart_now();
+	} while (restart);
 
 	return 0;
 }

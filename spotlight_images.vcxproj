@@ -179,6 +179,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="create_process.cpp" />
     <ClCompile Include="gui\main_form.cpp" />
     <ClCompile Include="gui\on_initialize.cpp" />
     <ClCompile Include="gui\on_layout.cpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="spotlight_images.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="create_process.h" />
     <ClInclude Include="gui.h" />
     <ClInclude Include="helper_functions.h" />
     <ClInclude Include="resource.h" />
@@ -210,6 +212,10 @@
     <Image Include="resources\png\image.png" />
     <Image Include="resources\png\info.png" />
     <Image Include="resources\png\settings.png" />
+    <Image Include="resources\png\updates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="latest_update.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

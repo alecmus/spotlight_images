@@ -67,12 +67,12 @@ void main_form::add_help_page() {
 
 	auto& github_link = lecui::widgets::label::add(help);
 	github_link
-		.text("Visit https://github.com/alecmus/pc_info")
+		.text("Visit https://github.com/alecmus/spotlight_images")
 		.rect().width(width).snap_to(more_info_caption.rect(), snap_type::bottom, 0.f);
 	github_link
 		.events().action = [this]() {
 		std::string error;
-		if (!leccore::shell::open("https://github.com/alecmus/pc_info", error))
+		if (!leccore::shell::open("https://github.com/alecmus/spotlight_images", error))
 			message(error);
 	};
 

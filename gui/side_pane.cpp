@@ -48,6 +48,30 @@ void main_form::add_side_pane() {
 	// define size of side bar icons
 	const float icon_size = side_pane_rect.width();
 
+	const float _icon_gap = 15.f;
+
+	// add updates icon
+	auto& updates_icon = lecui::widgets::icon::add(side_pane);
+	updates_icon
+		.tooltip("Updates")
+		.rect(lecui::rect()
+			.width(side_pane_rect.width())
+			.height(side_pane_rect.width())
+			.place(side_pane_rect, 50.f, 100.f)
+			.move(side_pane_rect.get_left(), side_pane_rect.get_bottom() - 3.f * (icon_size + _icon_gap) + _icon_gap))
+		.png_resource(png_updates)
+		.events().action = [&]() {
+		if (_page_man.current() != "home") {
+			// show home page
+			_page_man.show("home");
+
+			// close the back icon
+			_page_man.close("status::left/back");
+		}
+
+		updates();
+	};
+
 	// add settings icon
 	auto& settings_icon = lecui::widgets::icon::add(side_pane);
 	settings_icon
@@ -56,7 +80,7 @@ void main_form::add_side_pane() {
 			.width(side_pane_rect.width())
 			.height(side_pane_rect.width())
 			.place(side_pane_rect, 50.f, 100.f)
-			.move(side_pane_rect.get_left(), side_pane_rect.get_bottom() - 2.f * (icon_size + _margin) + _margin))
+			.move(side_pane_rect.get_left(), side_pane_rect.get_bottom() - 2.f * (icon_size + _icon_gap) + _icon_gap))
 		.png_resource(png_settings)
 		.events().action = [&]() {
 		try {
@@ -74,7 +98,7 @@ void main_form::add_side_pane() {
 			.width(side_pane_rect.width())
 			.height(side_pane_rect.width())
 			.place(side_pane_rect, 50.f, 100.f)
-			.move(side_pane_rect.get_left(), side_pane_rect.get_bottom() - 1.f * (icon_size + _margin) + _margin))
+			.move(side_pane_rect.get_left(), side_pane_rect.get_bottom() - 1.f * (icon_size + _icon_gap) + _icon_gap))
 		.png_resource(png_help)
 		.events().action = [this]() {
 		add_back_button();
