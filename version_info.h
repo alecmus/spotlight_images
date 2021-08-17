@@ -25,7 +25,7 @@
 #pragma once
 
 #define appname			"Spotlight Images"
-#define appdescription	"Get Windows Spotlight images"
+#define appdescription	"Get Windows Spotlight Images"
 #define appcomments		"Powered by the cui framework"
 #define appcopyright	"(c) 2021 Alec Musasa"
 #define appcompany		"Alec Musasa"
