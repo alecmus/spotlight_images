@@ -321,7 +321,8 @@ bool main_form::on_initialize(std::string& error) {
 
 	// size and stuff
 	_ctrls
-		.allow_resize(false);
+		.allow_resize(false)
+		.start_hidden(_system_tray_mode);
 	_apprnc
 		.main_icon(ico_resource)
 		.mini_icon(ico_resource)
