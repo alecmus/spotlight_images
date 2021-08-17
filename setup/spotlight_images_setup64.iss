@@ -28,7 +28,7 @@
 #define ModulesPath "..\..\bin\"
 #define OutputPath ModulesPath
 
-#define MyAppName "PC Info"
+#define MyAppName "Spotlight Images"
 #define MyAppNameCode "spotlight_images"
 #define MyAppExeName "spotlight_images64.exe"
 #define MyAppVersion GetVersionNumbersString('..\..\bin\spotlight_images64.exe')
