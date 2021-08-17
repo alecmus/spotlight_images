@@ -103,12 +103,39 @@ void main_form::on_start() {
 			{ "" },
 			{ "Settings", [this]() {
 				add_back_button();
-				_page_man.show("settings"); }
+				_page_man.show("settings");
+
+				if (minimized())
+					restore();
+				else
+					show();
+			}
 			},
-			{ "Updates", [this]() { updates(); } },
+			{ "Updates", [this]() {
+				if (_page_man.current() != "home") {
+					// show home page
+					_page_man.show("home");
+
+					// close the back icon
+					_page_man.close("status::left/back");
+				}
+
+				updates();
+
+				if (minimized())
+					restore();
+				else
+					show();
+			} },
 			{ "About", [this]() {
 				add_back_button();
-				_page_man.show("help"); }
+				_page_man.show("help");
+
+				if (minimized())
+					restore();
+				else
+					show();
+			}
 			},
 			{ "" },
 			{ "Exit", [this]() { close(); } }
