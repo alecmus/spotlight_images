@@ -101,6 +101,7 @@ class main_form : public lecui::form {
 	leccore::download_update _download_update;
 	std::string _update_directory;
 	bool _setting_autostart = false;
+	std::string _folder;
 
 	const bool _cleanup_mode;
 	const bool _update_mode;
@@ -132,6 +133,7 @@ class main_form : public lecui::form {
 	void on_autostart(bool on);
 	void on_autocheck_updates(bool on);
 	void on_autodownload_updates(bool on);
+	void on_select_location();
 
 public:
 	main_form(const std::string& caption);

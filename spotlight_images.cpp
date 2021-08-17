@@ -66,7 +66,7 @@ bool is_valid_spotlight_image(Gdiplus::Bitmap& gdibitmap) {
 	return true;
 }
 
-std::vector<image_info> fetch_images() {
+std::vector<image_info> fetch_images(const std::string& folder) {
 	auto get_app_data_folder = []() {
 		CHAR szPath[MAX_PATH];
 		if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, szPath))) {
@@ -89,9 +89,6 @@ std::vector<image_info> fetch_images() {
 	for (const auto& entry : std::filesystem::directory_iterator(path))
 		if (entry.is_regular_file())
 			file_list.push_back(entry.path());
-
-	// get current folder
-	std::string current_folder = get_current_folder();
 
 	std::vector<image_info> images;
 
@@ -128,7 +125,7 @@ std::vector<image_info> fetch_images() {
 				get_filename_from_full_path(it.string(), file_name);
 
 				// create new folder
-				std::string new_folder = current_folder + "\\Spotlight Images";
+				std::string new_folder = folder;
 
 				try {
 					// if the "Windows SpotLight' folder doesn't exist, create it

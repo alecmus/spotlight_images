@@ -30,7 +30,7 @@
 #include <algorithm>
 
 void main_form::on_start() {
-	_pictures = fetch_images();
+	_pictures = fetch_images(_folder);
 
 	// display caption
 	std::string message = std::to_string(_pictures.size()) + " image";

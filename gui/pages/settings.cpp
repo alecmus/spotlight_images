@@ -26,6 +26,7 @@
 #include <liblec/lecui/widgets/label.h>
 #include <liblec/lecui/widgets/toggle.h>
 #include <liblec/lecui/widgets/line.h>
+#include <liblec/lecui/utilities/filesystem.h>
 
 void main_form::add_settings_page() {
 	auto& settings = _page_man.add("settings");
@@ -90,11 +91,28 @@ void main_form::add_settings_page() {
 		.rect().snap_to(autostart_label.rect(), snap_type::bottom, 0.f);
 	autostart.events().toggle = [&](bool on) { on_autostart(on); };
 
+	// add location of pictures
+	auto& location_caption = lecui::widgets::label::add(settings);
+	location_caption
+		.text("Location of images")
+		.rect(autostart.rect())
+		.rect().snap_to(autostart.rect(), snap_type::bottom, 2.f * _margin);
+
+	auto& location = lecui::widgets::label::add(settings, "location");
+	location
+		.text(_folder)
+		.tooltip("Click to change location")
+		.rect().width(width).snap_to(location_caption.rect(), snap_type::bottom, 0.f);
+
+	if (_installed)
+		// changing location only allowed for installed version
+		location.events().action = [&]() { on_select_location(); };
+
 	// add updates section
 	auto& updates_caption = lecui::widgets::label::add(settings);
 	updates_caption
 		.text("<strong>Updates</strong>")
-		.rect().width(width).snap_to(autostart.rect(), snap_type::bottom, 3.f * _margin);
+		.rect().width(width).snap_to(location.rect(), snap_type::bottom, 3.f * _margin);
 
 	auto& updates_line = lecui::widgets::line::add(settings);
 	updates_line
@@ -207,4 +225,34 @@ void main_form::on_autodownload_updates(bool on) {
 	}
 	else
 		_setting_autodownload_updates = on;
+}
+
+void main_form::on_select_location() {
+	std::string folder = lecui::filesystem(*this)
+		.select_folder("Select where to place the \"Spotlight Images\" folder");
+
+	if (!folder.empty()) {
+		folder += "\\Spotlight Images";
+
+		std::string error;
+		if (!_settings.write_value("", "folder", folder, error))
+			message("Error saving folder location: " + error);
+		else {
+			const auto old_folder = _folder;
+			_folder = folder;
+			const auto new_folder = _folder;
+
+			try {
+				// change location label
+				get_label("settings/location").text(_folder);
+				update();
+			}
+			catch (const std::exception&) {}
+
+			// to-do: add option to move pictures from older folder
+			//if (old_folder != new_folder && prompt("Would you like to move all the pictures from the older folder?")) {
+			//	
+			//}
+		}
+	}
 }

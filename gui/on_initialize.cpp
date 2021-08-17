@@ -23,6 +23,7 @@
 */
 
 #include "../gui.h"
+#include "../helper_functions.h"
 #include <filesystem>
 #include <liblec/leccore/zip.h>
 #include <liblec/leccore/file.h>
@@ -305,6 +306,17 @@ bool main_form::on_initialize(std::string& error) {
 	else {
 		leccore::registry reg(leccore::registry::scope::current_user);
 		if (!reg.do_delete("Software\\Microsoft\\Windows\\CurrentVersion\\Run", "spotlight_images", error)) {}
+	}
+
+	if (!_settings.read_value("", "folder", value, error))
+		return false;
+	else {
+		if (_installed)
+			// default to sub-folder in the user profile pictures folder
+			_folder = value.empty() ? leccore::user_folder::pictures() + "\\Spotlight Images" : value;
+		else
+			// default to the current directory in portable mode
+			_folder = get_current_folder() + "\\Spotlight Images";
 	}
 
 	// size and stuff

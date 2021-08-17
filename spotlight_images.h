@@ -44,6 +44,8 @@ struct image_info {
 /// Fetch Windows Spotlight images.
 /// </summary>
 /// 
+/// <param name="folder">The folder to save the images to.</param>
+/// 
 /// <remarks>
 /// Creates a folder within the module's directory named "Spotlight" then
 /// copies Windows Spotlight images available in the current user's profile
@@ -56,4 +58,4 @@ struct image_info {
 /// <returns>
 /// Returns a list image_info objects for all the files fetched.
 /// </returns>
-std::vector<image_info> fetch_images();
+std::vector<image_info> fetch_images(const std::string& folder);
