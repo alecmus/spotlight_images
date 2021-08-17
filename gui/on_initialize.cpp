@@ -30,6 +30,14 @@
 #include <liblec/leccore/system.h>
 
 bool main_form::on_initialize(std::string& error) {
+	if (!_cleanup_mode && !_update_mode && !_system_tray_mode) {
+		// display splash screen
+		if (get_dpi_scale() < 2.f)
+			_splash.display(splash_image_128, false, error);
+		else
+			_splash.display(splash_image_256, false, error);
+	}
+
 	if (_cleanup_mode) {
 		if (prompt("Would you like to delete the app settings?")) {
 			// cleanup application settings

@@ -33,6 +33,7 @@
 #include <liblec/lecui/controls.h>
 #include <liblec/lecui/appearance.h>
 #include <liblec/lecui/utilities/timer.h>
+#include <liblec/lecui/utilities/splash.h>
 #include <liblec/lecui/utilities/tray_icon.h>
 #include <liblec/lecui/widgets/widget.h>
 #include <liblec/lecui/containers/page.h>
@@ -74,6 +75,7 @@ class main_form : public lecui::form {
 	lecui::instance_manager _instance_man{ *this, _instance_guid };
 	lecui::widget_manager _widget_man{ *this };
 	lecui::timer_manager _timer_man{ *this };
+	lecui::splash _splash{ *this };
 
 	std::vector<image_info> _pictures;
 	image_info _displayed_image;

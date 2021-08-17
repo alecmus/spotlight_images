@@ -117,6 +117,12 @@
     <Image Include="resources\png\updates.png">
       <Filter>Resource Files\png</Filter>
     </Image>
+    <Image Include="resources\png\splash_128.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="resources\png\splash_256.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="latest_update.xml">

@@ -155,4 +155,6 @@ void main_form::on_start() {
 		_widget_man.enable("settings/autostart", error);
 	else
 		_widget_man.disable("settings/autostart", error);
+
+	_splash.remove();
 }

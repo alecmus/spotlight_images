@@ -211,6 +211,8 @@
     <Image Include="resources\png\image.png" />
     <Image Include="resources\png\info.png" />
     <Image Include="resources\png\settings.png" />
+    <Image Include="resources\png\splash_128.png" />
+    <Image Include="resources\png\splash_256.png" />
     <Image Include="resources\png\updates.png" />
   </ItemGroup>
   <ItemGroup>

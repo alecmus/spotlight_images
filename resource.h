@@ -34,3 +34,5 @@
 #define png_back_dark	115
 #define png_help		116
 #define png_updates		117
+#define splash_image_128	118
+#define splash_image_256	119
