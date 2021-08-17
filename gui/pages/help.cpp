@@ -111,21 +111,10 @@ void main_form::add_help_page() {
 		.text("<strong>Additional credits</strong>")
 		.rect().width(width).snap_to(lecui_version.rect(), snap_type::bottom, _margin);
 
-	auto& dinosoft = lecui::widgets::label::add(help);
-	dinosoft
-		.text("Main icon designed by DinosoftLabs from https://www.flaticon.com")
-		.rect().width(width).snap_to(addition_credits_caption.rect(), snap_type::bottom, 0.f);
-	dinosoft
-		.events().action = [this]() {
-		std::string error;
-		if (!leccore::shell::open("https://www.flaticon.com/authors/dinosoftlabs", error))
-			message(error);
-	};
-
 	auto& freepik = lecui::widgets::label::add(help);
 	freepik
 		.text("Icons made by Freepik from https://www.flaticon.com")
-		.rect().width(width).snap_to(dinosoft.rect(), snap_type::bottom, 0.f);
+		.rect().width(width).snap_to(addition_credits_caption.rect(), snap_type::bottom, 0.f);
 	freepik
 		.events().action = [this]() {
 		std::string error;
