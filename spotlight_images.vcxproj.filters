@@ -1,132 +1,127 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
+    <Filter Include="spotlight_images">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Resource Files\ico">
-      <UniqueIdentifier>{92c785c3-caac-460c-b35f-51beabe4e4bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\png">
-      <UniqueIdentifier>{709c931e-7d08-4454-a8f0-a60da65a9c68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\gui">
+    <Filter Include="spotlight_images\gui">
       <UniqueIdentifier>{a6520a0e-965a-4f44-927d-e6b6aefeb6fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\main_form">
+    <Filter Include="spotlight_images\gui\main_form">
       <UniqueIdentifier>{4dc7d70b-2581-44b1-a77f-2f31c8c6ef50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\main_form\pages">
+    <Filter Include="spotlight_images\gui\main_form\pages">
       <UniqueIdentifier>{1f33f6bd-6427-40ec-a969-4eb8888517d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spotlight_images\resources">
+      <UniqueIdentifier>{b50497cc-889b-4ea9-a7f1-cbd9b6c72d2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spotlight_images\resources\png">
+      <UniqueIdentifier>{709c931e-7d08-4454-a8f0-a60da65a9c68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spotlight_images\resources\ico">
+      <UniqueIdentifier>{92c785c3-caac-460c-b35f-51beabe4e4bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spotlight_images.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ClCompile>
     <ClCompile Include="helper_functions.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ClCompile>
     <ClCompile Include="gui\on_initialize.cpp">
-      <Filter>Source Files\gui\main_form</Filter>
+      <Filter>spotlight_images\gui\main_form</Filter>
     </ClCompile>
     <ClCompile Include="gui\on_layout.cpp">
-      <Filter>Source Files\gui\main_form</Filter>
+      <Filter>spotlight_images\gui\main_form</Filter>
     </ClCompile>
     <ClCompile Include="gui\main_form.cpp">
-      <Filter>Source Files\gui\main_form</Filter>
+      <Filter>spotlight_images\gui\main_form</Filter>
     </ClCompile>
     <ClCompile Include="gui\pages\home.cpp">
-      <Filter>Source Files\gui\main_form\pages</Filter>
+      <Filter>spotlight_images\gui\main_form\pages</Filter>
     </ClCompile>
     <ClCompile Include="gui\pages\help.cpp">
-      <Filter>Source Files\gui\main_form\pages</Filter>
+      <Filter>spotlight_images\gui\main_form\pages</Filter>
     </ClCompile>
     <ClCompile Include="gui\pages\settings.cpp">
-      <Filter>Source Files\gui\main_form\pages</Filter>
+      <Filter>spotlight_images\gui\main_form\pages</Filter>
     </ClCompile>
     <ClCompile Include="gui\side_pane.cpp">
-      <Filter>Source Files\gui\main_form</Filter>
+      <Filter>spotlight_images\gui\main_form</Filter>
     </ClCompile>
     <ClCompile Include="gui\on_start.cpp">
-      <Filter>Source Files\gui\main_form</Filter>
+      <Filter>spotlight_images\gui\main_form</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="version_info.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="spotlight_images.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ClInclude>
     <ClInclude Include="helper_functions.h">
-      <Filter>Source Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ClInclude>
     <ClInclude Include="gui.h">
-      <Filter>Source Files</Filter>
+      <Filter>spotlight_images</Filter>
+    </ClInclude>
+    <ClInclude Include="version_info.h">
+      <Filter>spotlight_images</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>spotlight_images</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="version_info.rc">
-      <Filter>Resource Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ResourceCompile>
     <ResourceCompile Include="resource.rc">
-      <Filter>Resource Files</Filter>
+      <Filter>spotlight_images</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\ico\icon.ico">
-      <Filter>Resource Files\ico</Filter>
+      <Filter>spotlight_images\resources\ico</Filter>
     </Image>
     <Image Include="resources\png\error.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\folder.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\image.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\back_dark.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\back_light.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\info.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\settings.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\updates.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\splash_128.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
     <Image Include="resources\png\splash_256.png">
-      <Filter>Resource Files\png</Filter>
+      <Filter>spotlight_images\resources\png</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="latest_update.xml">
-      <Filter>Source Files</Filter>
+      <Filter>spotlight_images</Filter>
     </Xml>
   </ItemGroup>
 </Project>
