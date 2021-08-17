@@ -26,7 +26,7 @@
 
 #define appname			"Spotlight Images"
 #define appdescription	"Get Windows Spotlight Images"
-#define appcomments		"Powered by the cui framework"
+#define appcomments		"Powered by liblec"
 #define appcopyright	"(c) 2021 Alec Musasa"
 #define appcompany		"Alec Musasa"
 #define appfilename		"spotlight_images.exe"
