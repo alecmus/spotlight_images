@@ -80,7 +80,7 @@ void main_form::on_start() {
 
 			lecui::table_row row = {
 				{ "Name", file_name },
-				{ "Size", format_size(pic.file_size) },
+				{ "Size", leccore::format_size(pic.file_size) },
 				{ "Orientation", std::string(pic.orientation == image_orientation::landscape ? "Landscape" : "Portrait") }
 			};
 

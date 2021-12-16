@@ -87,7 +87,7 @@ void main_form::add_home_page() {
 					image.file(_displayed_image.full_path);
 
 					std::string file_info_text = "Resolution: " + std::to_string(_displayed_image.width) + "x" + std::to_string(_displayed_image.height);
-					file_info_text += ", Size: " + format_size(_displayed_image.file_size);
+					file_info_text += ", Size: " + leccore::format_size(_displayed_image.file_size);
 
 					file_info.text(file_info_text);
 				}
