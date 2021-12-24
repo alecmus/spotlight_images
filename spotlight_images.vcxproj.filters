@@ -118,6 +118,27 @@
     <Image Include="resources\png\splash_256.png">
       <Filter>spotlight_images\resources\png</Filter>
     </Image>
+    <Image Include="resources\png\icon_16.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_24.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_32.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_64.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_128.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_256.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
+    <Image Include="resources\png\icon_512.png">
+      <Filter>spotlight_images\resources\png</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="latest_update.xml">

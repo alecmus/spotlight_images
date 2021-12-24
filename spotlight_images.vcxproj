@@ -208,6 +208,13 @@
     <Image Include="resources\png\back_light.png" />
     <Image Include="resources\png\error.png" />
     <Image Include="resources\png\folder.png" />
+    <Image Include="resources\png\icon_128.png" />
+    <Image Include="resources\png\icon_16.png" />
+    <Image Include="resources\png\icon_24.png" />
+    <Image Include="resources\png\icon_256.png" />
+    <Image Include="resources\png\icon_32.png" />
+    <Image Include="resources\png\icon_512.png" />
+    <Image Include="resources\png\icon_64.png" />
     <Image Include="resources\png\image.png" />
     <Image Include="resources\png\info.png" />
     <Image Include="resources\png\settings.png" />
