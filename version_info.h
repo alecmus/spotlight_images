@@ -31,9 +31,9 @@
 #define appcompany		"Alec Musasa"
 #define appfilename		"spotlight_images.exe"
 
-#define appversion		"1.0.1 beta 2"
+#define appversion		"1.0.1 beta 3"
 #define appmajor		1
 #define appminor		0
 #define apprevision		1
 
-#define appdate			"21 Aug 2021"
+#define appdate			"25 Dec 2021"
