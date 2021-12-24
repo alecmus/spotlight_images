@@ -23,7 +23,7 @@
 ;
 
 #define MainExe "..\..\bin\spotlight_images64.exe"
-#define RedistPath "..\..\files\redist\vs2019\vc\x64\"
+#define RedistPath "..\..\files\redist\vs2022\vc\x64\"
 #define Architecture "64"
 #define ModulesPath "..\..\bin\"
 #define OutputPath ModulesPath
