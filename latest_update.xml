@@ -2,21 +2,21 @@
 <leccore>
   <update>
     <title>Spotlight Images Update</title>
-    <description>Various improvements including but not limited to the following: moved to the more versatile lecui graphical user interface, added installer, portable mode, splash screen, settings, tray icon and built-in online update mechanism.</description>
-    <version>1.0.1 beta 2</version>
-    <date>17 Aug 2021</date>
+    <description>Various improvements including but not limited to the following: added caption icon.</description>
+    <version>1.0.1 beta 3</version>
+    <date>25 Dec 2021</date>
     <x86>
-      <download_url>https://github.com/alecmus/spotlight_images/releases/download/v1.0.1-beta.2/update.32.zip</download_url>
-      <size>2360594</size>
+      <download_url>https://github.com/alecmus/spotlight_images/releases/download/v1.0.1-beta.3/update.32.zip</download_url>
+      <size>2460481</size>
       <hash>
-        <sha256>CB70838310793110ED7D6D9EAC3F47AC615333C1495F80BD07198D3A65B6EE6A</sha256>
+        <sha256>2BACAE382672F1F3D622E43CD2F2764A6D05C9D12B12B9D69648266AC63BE693</sha256>
       </hash>
     </x86>
     <x64>
-      <download_url>https://github.com/alecmus/spotlight_images/releases/download/v1.0.1-beta.2/update.64.zip</download_url>
-      <size>2995183</size>
+      <download_url>https://github.com/alecmus/spotlight_images/releases/download/v1.0.1-beta.3/update.64.zip</download_url>
+      <size>3108106</size>
       <hash>
-        <sha256>B86FF72EA4A585BD9879323FE2A88D6BEB3DA05997C0BDEF4140C79E6B8FE737</sha256>
+        <sha256>53E6CF24EFCEF8F13F5357BE52C48E837A5FD4E75483E54711F6A6B830A4DC21</sha256>
       </hash>
     </x64>
   </update>
