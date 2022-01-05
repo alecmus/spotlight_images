@@ -40,7 +40,7 @@ void main_form::add_home_page() {
 	caption
 		.color_text(lecui::color().red(100).green(100).blue(100))
 		.rect(lecui::rect().left(_margin).top(_margin).right(home.size().get_width() - _margin).height(20.f))
-		.center_h(true);
+		.alignment(lecui::text_alignment::center);
 
 	// add table view
 	auto& list = lecui::widgets::table_view::add(home, "list");
@@ -124,7 +124,7 @@ void main_form::add_home_page() {
 	file_info
 		.color_text(lecui::color().red(150).green(150).blue(150))
 		.font_size(8.f)
-		.center_h(true)
+		.alignment(lecui::text_alignment::center)
 		.rect(lecui::rect()
 			.left(image.rect().left())
 			.right(image.rect().right())

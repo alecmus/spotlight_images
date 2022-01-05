@@ -229,7 +229,7 @@ void main_form::on_autodownload_updates(bool on) {
 
 void main_form::on_select_location() {
 	std::string folder = lecui::filesystem(*this)
-		.select_folder("Select where to place the \"Spotlight Images\" folder");
+		.select_folder(appname + std::string(" - Select Folder"));
 
 	if (!folder.empty()) {
 		folder += "\\Spotlight Images";
