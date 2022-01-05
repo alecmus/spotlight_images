@@ -16,6 +16,8 @@ Get Windows Spotlight Images
   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/alecmus/spotlight_images">
 </p>
 
+<img src="https://github.com/alecmus/files/blob/master/liblec/lecui/screenshots/spotlight_images/spotlight_images_01.png?raw=true" alt="screenshot" width="800"/>
+
 ## About
 A simple tool for getting Windows Spotlight Images. The application creates a folder named "Spotlight Images" and copies all Windows Spotlight images available in the currently logged on user's profile into it.
 
