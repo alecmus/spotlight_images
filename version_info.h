@@ -25,7 +25,7 @@
 #pragma once
 
 #define appname			"Spotlight Images"
-#define appdescription	"Get Windows Spotlight Images"
+#define appdescription	"Spotlight Images"
 #define appcomments		"Powered by liblec"
 #define appcopyright	"(c) 2021 Alec Musasa"
 #define appcompany		"Alec Musasa"
@@ -36,4 +36,4 @@
 #define appminor		0
 #define apprevision		1
 
-#define appdate			"05 Jan 2022"
+#define appdate			"08 Mar 2022"
