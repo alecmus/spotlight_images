@@ -113,10 +113,10 @@ class main_form : public lecui::form {
 
 	bool _update_details_displayed = false;
 
-	bool on_initialize(std::string& error) override;
-	bool on_layout(std::string& error) override;
-	void on_start() override;
-	void on_close() override;
+	bool on_initialize(std::string& error);
+	bool on_layout(std::string& error);
+	void on_start();
+	void on_close();
 	void add_side_pane();
 	void add_back_button();
 	void add_home_page();

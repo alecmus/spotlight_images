@@ -447,6 +447,32 @@ main_form::main_form(const std::string& caption, bool restarted) :
 	// initialize GDI+
 	Gdiplus::GdiplusStartupInput gdiplus_startup_input;
 	GdiplusStartup(&gdi_plus_token_, &gdiplus_startup_input, NULL);
+
+	// caption event
+	events().caption = [this]() {
+		add_back_button();
+		_page_man.show("help");
+	};
+
+	// initialize event
+	events().initialize = [this](std::string& error) {
+		return on_initialize(error);
+	};
+
+	// layout event
+	events().layout = [this](std::string& error) {
+		return on_layout(error);
+	};
+
+	// start event
+	events().start = [this]() {
+		return on_start();
+	};
+
+	// close event
+	events().close = [this]() {
+		return on_close();
+	};
 }
 
 main_form::~main_form() {

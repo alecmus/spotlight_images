@@ -339,11 +339,5 @@ bool main_form::on_initialize(std::string& error) {
 
 	_dim.set_size(lecui::size().width(800.f).height(500.f));
 
-	// add form caption handler
-	form::on_caption([this]() {
-		add_back_button();
-		_page_man.show("help");
-		}, "Click to view information about this app");
-
 	return true;
 }
