@@ -23,9 +23,13 @@
 */
 
 #include "../../gui.h"
+
+// lecui
 #include <liblec/lecui/widgets/label.h>
 #include <liblec/lecui/widgets/line.h>
+#include <liblec/lecui/widgets/image_view.h>
 
+// leccore
 #include <liblec/leccore/system.h>
 
 void main_form::add_help_page() {
@@ -42,9 +46,20 @@ void main_form::add_help_page() {
 			.left(_margin)
 			.right(right - _margin)
 			.top(_margin)
-			.height(25.f));
+			.height(25.f))
+		.on_resize(lecui::resize_params()
+			.width_rate(100.f));
 
 	const auto width = title.rect().width();
+
+	// add app icon
+	auto& app_icon = lecui::widgets::image_view::add(help);
+	app_icon
+		.png_resource(get_dpi_scale() < 2.f ? icon_png_64 : icon_png_128)
+		.rect()
+		.width(64.f)
+		.height(64.f)
+		.snap_to(title.rect(), snap_type::bottom_left, 0.f);
 
 	// add app version label
 	auto& app_version = lecui::widgets::label::add(help);
@@ -52,7 +67,9 @@ void main_form::add_help_page() {
 		.text("<span style = 'font-size: 9.0pt;'>" +
 			std::string(appname) + " " + std::string(appversion) + " (" + std::string(architecture) + "), " + std::string(appdate) +
 			"</span>")
-		.rect().width(width).height(20.f).snap_to(title.rect(), snap_type::bottom, _margin);
+		.on_resize(lecui::resize_params()
+			.width_rate(100.f))
+		.rect().width(width).height(20.f).snap_to(app_icon.rect(), snap_type::bottom_left, _margin);
 
 	// add copyright information
 	auto& copyright = lecui::widgets::label::add(help);

@@ -27,6 +27,9 @@
 #define ico_resource	100
 #define icon_png_32		101
 #define icon_png_64		102
+#define icon_png_128	103
+#define icon_png_256	104
+#define icon_png_512	105
 
 #define png_error		110
 #define png_open_image	111
