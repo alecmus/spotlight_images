@@ -6,7 +6,6 @@ Get Windows Spotlight Images
   <br>
   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/alecmus/spotlight_images">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/alecmus/spotlight_images">
-  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/alecmus/spotlight_images/total">
 </p>
 
 <p>
